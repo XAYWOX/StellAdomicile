@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pet sitter à domicile, renfort et remplacement professionnel.">
+    <title>StellAdomicile | Pet Sitter</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="google-site-verification" content="3MoJ0Pm0lyPwdCLFUgj7z43vrwexQKqv-7YkO9zJtGw" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" xintegrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #FDF6E3;
+            color: #333; 
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #84595a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6a4a4b; }
+
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 5px;
+            }
+        }
+        
+        .text-brand-primary { color: #84595a; }
+        .bg-brand-primary { background-color: #84595a; }
+        .border-brand-primary { border-color: #84595a; }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-\[400ms\] { transition-delay: 0.4s; }
+
+        .service-card { transition: all 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+
+        
+        .full-width-image {
+            width: 100%;
+            height: 300px; 
+            max-height: 300px; 
+            object-fit: cover; 
+            filter: grayscale(10%); 
+            transition: all 0.5s ease;
+        }
+        .full-width-image:hover {
+            filter: grayscale(0%);
+            transform: scale(1.01);
+        }
+
+        
+        .hero-image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 0.5rem;
+        }
+        .hero-image {
+            width: 100%;
+            height: 180px; 
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .hero-image:nth-child(3) { 
+            grid-column: span 1; 
+            height: 180px; 
+        } 
+        .hero-image:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .desktop-nav-link:focus, .desktop-nav-link:active {
+            color: #84595a; 
+            font-weight: 600; 
+            outline: 2px solid #84595a; 
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        .mobile-nav-link:active {
+            color: #84595a;
+            border-left: 4px solid #84595a !important; 
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="text-gray-800 overflow-x-hidden">
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-brand-primary flex items-center gap-2 hover:scale-105 transition-transform">
+                <i class="fas fa-paw"></i> StellAdomicile
+                <img src="image6.png" alt="Logo secondaire" class="h-16 w-auto ml-2 object-contain">
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#accueil" class="desktop-nav-link hover:text-brand-primary transition relative group">Accueil<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#services" class="desktop-nav-link hover:text-brand-primary transition relative group">Mes Services<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#apropos" class="desktop-nav-link hover:text-brand-primary transition relative group">À propos<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#animaux" class="desktop-nav-link hover:text-brand-primary transition relative group">Animaux<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#diplomes" class="desktop-nav-link hover:text-brand-primary transition relative group">Diplômes<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#avis" class="desktop-nav-link hover:text-brand-primary transition relative group">Avis<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full"></span></a>
+                <a href="#contact" class="bg-brand-primary text-white px-5 py-2 rounded-full hover:opacity-90 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Me Contacter</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none hover:text-brand-primary transition"><i class="fas fa-bars text-2xl"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 flex flex-col space-y-4 shadow-lg absolute w-full">
+            <a href="#accueil" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Accueil</a>
+            <a href="#services" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Mes Services</a>
+            <a href="#apropos" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">À propos</a>
+            <a href="#animaux" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Animaux</a>
+            <a href="#diplomes" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Diplômes</a>
+            <a href="#avis" class="mobile-nav-link block hover:text-brand-primary pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Avis</a>
+            <a href="#contact" class="mobile-nav-link block text-brand-primary font-bold pl-2 border-l-4 border-transparent hover:border-brand-primary transition-all">Me Contacter</a>
+        </div>
+    </nav>
+
+    <header id="accueil" class="pt-24 pb-12 md:pt-32 md:pb-24 relative overflow-hidden min-h-[90vh] flex items-center shadow-inner">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 z-10 reveal">
+                <span class="inline-block py-1 px-3 rounded-full bg-white border border-[#84595a] text-brand-primary text-sm font-semibold tracking-wider uppercase mb-4 shadow-sm">Pet Sitter Certifiée & Passionnée</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">L'amour et l'attention que <span class="text-brand-primary">vos animaux</span> méritent.</h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">Partez l'esprit tranquille. Je m'occupe de vos compagnons comme s'ils étaient les miens. Promenades et visites le tout avec bienveillance.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-brand-primary text-white px-8 py-4 rounded-full text-center hover:opacity-90 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                        <i class="fas fa-calendar-check group-hover:scale-110 transition-transform"></i> Réserver une garde
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative z-10 flex justify-center reveal delay-200">
+                <div class="hero-image-grid w-full max-w-sm md:max-w-md">
+                    <img src="image1.jpeg" alt="Chien" class="hero-image" onerror="this.src='https://placehold.co/200x180/84595a/white?text=Image+1'">
+                    <img src="image2.jpeg" alt="Chat" class="hero-image" onerror="this.src='https://placehold.co/200x180/84595a/white?text=Image+2'">
+                    <img src="image3.jpeg" alt="Chevaux" class="hero-image" onerror="this.src='https://placehold.co/200x180/84595a/white?text=Image+3'">
+                    <img src="image4.jpeg" alt="NAC" class="hero-image" onerror="this.src='https://placehold.co/200x180/84595a/white?text=Image+4'">
+                </div>
+            </div>
+            </div>
+    </header>
+
+    <section id="services" class="py-24 bg-white relative shadow-lg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Mes Services</h2>
+                <div class="w-24 h-1.5 bg-brand-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">Des solutions adaptées aux besoins de votre animal et à votre emploi du temps.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-stretch pt-8">
+                
+                <div class="service-card bg-white p-8 rounded-3xl border border-gray-100 shadow-lg text-center reveal delay-100 group cursor-default flex flex-col justify-between">
+                    <div>
+                        <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#fcf6f6] transition-colors duration-300">
+                            <i class="fas fa-dog text-3xl text-brand-primary group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Promenades</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">Des balades énergiques ou tranquilles selon l'âge et la forme de votre chien. Jeux et socialisation inclus.</p>
+                    </div>
+                    <a href="#contact" class="inline-block bg-brand-primary text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition mt-auto">Réserver</a>
+                </div>
+
+                <div class="service-card bg-white p-10 rounded-3xl border-2 border-brand-primary shadow-2xl text-center reveal delay-200 group cursor-default transform md:scale-105 z-10 relative flex flex-col justify-between">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-primary text-white px-6 py-1 rounded-full text-sm font-bold uppercase tracking-wider shadow-md">
+                        Le + Populaire
+                    </div>
+                    
+                    <div>
+                        <div class="w-24 h-24 bg-[#fcf6f6] rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                            <i class="fas fa-home text-4xl text-brand-primary group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-3 text-brand-primary">Visites à Domicile</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed text-lg">Je passe nourrir, promener, jouer et câliner votre animal chez vous.</p>
+                    </div>
+                    <a href="#contact" class="inline-block bg-brand-primary text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition mt-auto">Réserver</a>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl border border-gray-100 shadow-lg text-center reveal delay-300 group cursor-default flex flex-col justify-between">
+                    <div>
+                        <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#fcf6f6] transition-colors duration-300">
+                            <i class="fas fa-tractor text-3xl text-brand-primary group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Services aux Pros</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">Remplacement et renfort dans les pensions canines et les fermes. Une aide qualifiée pour vos structures.</p>
+                    </div>
+                    <a href="#contact" class="inline-block bg-brand-primary text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition mt-auto">Réserver</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="py-24 relative overflow-hidden shadow-inner">
+        <i class="fas fa-paw text-9xl absolute -left-10 bottom-0 text-brand-primary opacity-5 rotate-45"></i>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 reveal">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-brand-primary rounded-2xl transform translate-x-4 translate-y-4 opacity-20"></div>
+                        <img src="image5.jpeg" alt="Moi avec un chien" class="relative rounded-2xl shadow-xl w-full h-[550px] object-cover hover:scale-[1.01] transition duration-500" onerror="this.src='https://placehold.co/600x500/84595a/white?text=Photo+de+Profil'">
+                    </div>
+                </div>
+                <div class="md:w-1/2 reveal delay-200">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8">Qui suis-je ?</h2>
+                    <p class="text-gray-700 mb-6 text-xl leading-relaxed">Bonjour je m'appelle <span class="font-bold text-brand-primary">Stella</span>.</p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">Passionnée par les animaux depuis mon enfance, j'ai décidé d'en faire mon métier et je m'engage à offrir bien-être et sécurité à vos compagnons.</p>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-4 bg-white p-3 rounded-lg hover:bg-white transition duration-300 border border-transparent hover:border-brand-primary/20 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-alt"></i></div>
+                            <span class="font-medium text-gray-800">Assurance Responsabilité Civile Pro</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-3 rounded-lg hover:bg-white transition duration-300 border border-transparent hover:border-brand-primary/20 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center flex-shrink-0"><i class="fas fa-medkit"></i></div>
+                            <span class="font-medium text-gray-800">Certificat de Premiers Secours Canin & Félin</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-3 rounded-lg hover:bg-white transition duration-300 border border-transparent hover:border-brand-primary/20 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center flex-shrink-0"><i class="fas fa-heart"></i></div>
+                            <span class="font-medium text-gray-800">Expérience avec chiens réactifs et animaux timides</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="animaux" class="py-24 bg-white relative shadow-lg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Animaux Pris en Charge</h2>
+                <div class="w-24 h-1.5 bg-brand-primary mx-auto rounded-full opacity-80"></div>
+                <p class="mt-6 text-gray-600 max-w-4xl mx-auto text-lg">Mon expérience me permet de prendre soin de tous vos compagnons, des plus petits aux plus grands.</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 justify-center reveal delay-100">
+                
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-t-8 border-brand-primary hover:scale-[1.03]">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-dog text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Chiens</h3>
+                    <p class="text-gray-600 text-sm">Toutes races et caractères</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-t-8 border-brand-primary hover:scale-[1.03] delay-100">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-cat text-3xl text-brand-primary mr-1"></i>
+                        <i class="fas fa-rabbit text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">NAC</h3>
+                    <p class="text-gray-600 text-sm">Rongeurs, oiseaux, reptiles...</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-t-8 border-brand-primary hover:scale-[1.03] delay-200">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-horse-head text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Équidés</h3>
+                    <p class="text-gray-600 text-sm">Chevaux, poneys, ânes</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-t-8 border-brand-primary hover:scale-[1.03] delay-300">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-cow text-2xl text-brand-primary mr-1"></i>
+                        <i class="fas fa-pig text-2xl text-brand-primary mr-1"></i>
+                        <i class="fas fa-crow text-2xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Animaux de la Ferme</h3>
+                    <p class="text-gray-600 text-sm">Vaches, cochons, moutons, poules...</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="diplomes" class="py-24 bg-white relative overflow-hidden shadow-lg">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Mes Diplômes & Formations</h2>
+                <div class="w-24 h-1.5 bg-brand-primary mx-auto rounded-full opacity-80"></div>
+                <p class="mt-6 text-gray-600 max-w-4xl mx-auto text-lg">Des qualifications solides pour la prise en charge de vos animaux.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 justify-center reveal delay-200">
+                
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-b-8 border-brand-primary hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-graduation-cap text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">BAC STAV</h3>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-b-8 border-brand-primary hover:-translate-y-2 delay-100">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-certificate text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">ACACED</h3>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-b-8 border-brand-primary hover:-translate-y-2 delay-200">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-heartbeat text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Formations Premiers Secours Canin & Félin</h3>
+                </div>
+                
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-b-8 border-brand-primary hover:-translate-y-2 delay-300">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-horse-head text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Galop 4</h3>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group border-b-8 border-brand-primary hover:-translate-y-2 delay-[400ms]">
+                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-primary/20 transition">
+                        <i class="fas fa-paw text-4xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Nombreux stages professionnels</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="avis" class="py-24 relative shadow-inner">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 reveal">Ils me font confiance</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                
+                <div class="bg-white p-8 rounded-2xl relative reveal delay-100 hover:shadow-lg transition duration-300 border border-gray-100">
+                    <i class="fas fa-quote-left text-5xl text-gray-200 absolute top-6 left-6 -z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-semibold text-gray-700">Avis vérifié</span>
+                        </div>
+                        <div class="flex text-[#84595a] mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6 leading-relaxed">Stella est une personne très attentionnée et compétente ça se voit qu'elle aime énormément les animaux, foncez ! je vous la recommande les yeux fermés.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">A</div>
+                            <div><h4 class="font-bold text-gray-900">Aly G.</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl relative reveal delay-200 hover:shadow-lg transition duration-300 border border-gray-100">
+                    <i class="fas fa-quote-left text-5xl text-gray-200 absolute top-6 left-6 -z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-semibold text-gray-700">Avis vérifié</span>
+                        </div>
+                        <div class="flex text-[#84595a] mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6 leading-relaxed">Une personne très à l'écoute et sérieuse. c'est très important de trouver une collaboration qui rime avec passion. Il n'est pas évident de laisser son animal à une personne inconnue, mais Stella a su redorer l'expérience ! N'hésitez pas à la contacter ! je recommande à 100%.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">C</div>
+                            <div><h4 class="font-bold text-gray-900">Christine B.</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl relative reveal delay-300 hover:shadow-lg transition duration-300 border border-gray-100">
+                    <i class="fas fa-quote-left text-5xl text-gray-200 absolute top-6 left-6 -z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-semibold text-gray-700">Avis vérifié</span>
+                        </div>
+                        <div class="flex text-[#84595a] mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6 leading-relaxed">Je recommande les yeux fermés. Très à l'écoute, patiente, et très douce avec les animaux. Excellente.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">E</div>
+                            <div><h4 class="font-bold text-gray-900">Emelyne B.</h4></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal">Contactez-moi</h2>
+            <p class="text-white/90 mb-16 text-lg max-w-2xl mx-auto reveal delay-100">Vous avez une question ou souhaitez réserver une garde ? N'hésitez pas à me joindre directement par téléphone, mail ou sur Facebook.</p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-10 md:gap-20 reveal delay-200">
+                
+                <div class="flex flex-col items-center group">
+                    <a href="#" id="phone-link" data-uri="tel:0766211375" class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
+                        <i class="fas fa-phone-alt text-3xl text-white"></i>
+                    </a>
+                    <h3 class="font-bold text-xl mb-2">Téléphone</h3>
+                    <p class="text-white/90 text-lg">07 66 21 13 75</p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <a href="#" id="email-link" data-uri="mailto:Stelladomicile@gmail.com" class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
+                        <i class="fas fa-envelope text-3xl text-white"></i>
+                    </a>
+                    <h3 class="font-bold text-xl mb-2">Email</h3>
+                    <p class="text-white/90 text-lg">Stelladomicile@gmail.com</p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <a href="https://www.facebook.com/profile.php?id=61583751942721&locale=fr_FR" target="_blank" class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
+                        <i class="fab fa-facebook-f text-3xl text-white"></i>
+                    </a>
+                    <h3 class="font-bold text-xl mb-2">Facebook</h3>
+                    <p class="text-white/90 text-lg">StellAdomicile</p>
+                </div>
+
+                <div class="flex flex-col items-center group">
+                    <a href="#" id="map-link" data-uri="https://maps.google.com/?cid=8852454179582740325&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
+                        <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+                    </a>
+                    <h3 class="font-bold text-xl mb-2">Zone</h3>
+                    <p class="text-white/90 text-lg">Aoste et alentours</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <i class="fas fa-paw text-brand-primary text-2xl"></i>
+                <span class="text-2xl font-bold text-white">StellAdomicile</span>
+            </div>
+            <p class="mb-6 max-w-md mx-auto">Parce qu'ils font partie de la famille, ils méritent ce qu'il y a de mieux, même quand vous n'êtes pas là.</p>
+            <p>© 2026 StellAdomicile. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactLinks = [
+                { id: 'phone-link', message: 'Voulez-vous appeler StellAdomicile ?' },
+                { id: 'email-link', message: 'Voulez-vous ouvrir votre client de messagerie pour envoyer un email ?' },
+                { id: 'map-link', message: 'Voulez-vous ouvrir la carte pour voir la zone d\'intervention ?', isExternal: true }
+            ];
+
+            contactLinks.forEach(linkInfo => {
+                const link = document.getElementById(linkInfo.id);
+                if (link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const userConfirmed = confirm(linkInfo.message);
+
+                        if (userConfirmed) {
+                            const uri = link.getAttribute('data-uri');
+                            if (uri) {
+                                if (linkInfo.isExternal) {
+                                    window.open(uri, '_blank');
+                                } else {
+                                    window.location.href = uri;
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) { nav.classList.add('shadow-md', 'py-2'); nav.classList.remove('py-4', 'shadow-sm'); }
+            else { nav.classList.remove('shadow-md', 'py-2'); nav.classList.add('py-4', 'shadow-sm'); }
+        });
+    </script>
+</body>
+</html>
